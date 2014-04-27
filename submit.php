@@ -1,13 +1,6 @@
 <?php
-
-// prepare db connection
-// we'll cache the queries to stay speedy with prepared statements
-$db = new PDO('mysql:dbname=geo_maps;host=127.0.0.1;charset=utf8', 'root', '');
-
-$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 // print_r($_SERVER['REQUEST_METHOD']);
+include_once('db-connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   gf_insert($_POST, $db);
