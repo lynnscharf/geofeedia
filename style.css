@@ -261,7 +261,14 @@ div.ui-dialog-buttonpane button {
   display: block;
   margin: 0px auto 20px auto;
 }
+.ui-widget-overlay
+{
+  position: absolute; top: 0; left: 0; width: 2000px; height: 2000px;
+  opacity: .50 !important; /* Make sure to change both of these, as IE only sees the second one */
+  filter: Alpha(Opacity=50) !important;
 
+  background-color: rgb(50, 50, 50) !important; /* This will make it darker */
+}
 /*light background #F2F2F2
 dark header background #CFCFCF
 Submit Button #3D6AB2

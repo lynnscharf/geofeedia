@@ -1,4 +1,5 @@
-$( "#dialog" ).dialog({ autoOpen: false,
+$( "#dialog" ).dialog({ modal: true,
+                        autoOpen: false,
                         title: "Copy the code below and paste it where you want the map to appear on your website.",
                         height: 300,
                         width: 350,
