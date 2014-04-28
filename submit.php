@@ -62,7 +62,7 @@ function return_data($guid, $db) {
   $row = $statement->fetch();
   
   $locjson = json_decode(str_replace("'",'"',$row['address_location']));
-  
+
   $host = "http://" . $_SERVER['HTTP_HOST'];
 
   $height = $row['height'];
@@ -75,7 +75,11 @@ function return_data($guid, $db) {
   $lon = $locjson->lon;
   $zoom = $locjson->zoom;
 
-  $string = "<iframe height='" . $height . "' width='" . $width . "' src='" . $host . "/embed.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "'></iframe>";
+  if (($width || $height) == '0') {
+    $string = "<iframe height='" . $height . "' width='" . $width . "' src='" . $host . "/embed.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "' style='width: 100%; height: 100%;'></iframe>";
+  } else {
+    $string = "<iframe height='" . $height . "' width='" . $width . "' src='" . $host . "/embed.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "'></iframe>";
+  }
   
   print $string;
 }

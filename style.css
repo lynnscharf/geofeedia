@@ -263,7 +263,7 @@ div.ui-dialog-buttonpane button {
 }
 .ui-widget-overlay
 {
-  position: absolute; top: 0; left: 0; width: 2000px; height: 2000px;
+  position: absolute; top: 0; left: 0; width: 10000px; height: 10000px;
   opacity: .50 !important; /* Make sure to change both of these, as IE only sees the second one */
   filter: Alpha(Opacity=50) !important;
 
