@@ -237,6 +237,31 @@ input#location {
   display: none;
 }
 
+button.ui-dialog-titlebar-close {
+  display: none;
+}
+
+div.ui-dialog {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #CFCFCF;
+  padding: 0px;
+  background-color: #F2F2F2;
+}
+
+span.ui-dialog-title {
+  display: block;
+  width: 80%;
+  margin: 20px auto 20px auto;
+}
+
+div.ui-dialog-content textarea,
+div.ui-dialog-buttonpane button {
+  width: 80%;
+  display: block;
+  margin: 0px auto 20px auto;
+}
+
 /*light background #F2F2F2
 dark header background #CFCFCF
 Submit Button #3D6AB2

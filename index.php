@@ -72,8 +72,7 @@
           </ul>
         </form> 
         <div id='dialog' >
-          <h2 class="dialog_title">Copy the code below and paste it where you want the map to appear on your website.</h2>
-          <textarea rows="5" cols="30">
+          <textarea rows="8" cols="30">
 
           </textarea>
         </div>
