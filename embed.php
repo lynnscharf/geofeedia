@@ -12,20 +12,6 @@
   <script src="js/moment.min.js"></script>
   <script src="js/jquery-ui-map30rc1.min.js"></script>
   <script src="functions.js"></script>
-<?php 
-
-
-// print "<pre>";
-// print_r($_GET['guid']);
-// print_r($_GET['appkey']); 
-// print_r($_GET['appid']); 
-// print_r($_GET['collection']); 
-// print_r($_GET['geo']);
-
-// print "</pre>";
-
-?>
-
 
 <script>
 var map;
