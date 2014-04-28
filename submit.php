@@ -62,7 +62,8 @@ function return_data($guid, $db) {
   $row = $statement->fetch();
   
   $locjson = json_decode(str_replace("'",'"',$row['address_location']));
-  $host = "http://geofeed";
+  
+  $host = "http://" . $_SERVER['HTTP_HOST'];
 
   $height = $row['height'];
   $width = $row['width'];
@@ -73,7 +74,6 @@ function return_data($guid, $db) {
   $lat = $locjson->lat;
   $lon = $locjson->lon;
   $zoom = $locjson->zoom;
-
 
   $string = "<iframe height='" . $height . "' width='" . $width . "' src='" . $host . "/embed.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "'></iframe>";
   
