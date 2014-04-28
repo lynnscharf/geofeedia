@@ -48,7 +48,6 @@ function gf_insert($post, $db) {
                                     'height' => $post['height']
                                     ));
   return_data($guid, $db);
-
 }
 
 /**
@@ -61,8 +60,8 @@ function return_data($guid, $db) {
   $statement->execute(array(':guid' => $guid));
 
   $row = $statement->fetch();
-  $locjson = json_decode($row['address_location']);
-
+  
+  $locjson = json_decode(str_replace("'",'"',$row['address_location']));
   $host = "http://geofeed";
 
   $height = $row['height'];
@@ -78,18 +77,7 @@ function return_data($guid, $db) {
 
   $string = "<iframe height='" . $height . "' width='" . $width . "' src='" . $host . "/embed.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "'></iframe>";
   
-  /* $string = "\"<iframe height=\"$row[height]\" width=\"$row[width]\" src=\"/embed.php?guid=$row[guid]&appid=$row[app_id]&appkey=$row[app_key]&collection=$row[collection]&lat=$locjson[lat];&lon=$locjson[lon];\"></iframe>\""; */
-
-  // print_r($locjson->lat);
-   // print_r($row['address_location']);
-  // print json_encode($row);
   print $string;
 }
-
-// function pr($var_to_print_pretty) {
-//   print "<pre>";
-//   print_r $var_to_print_pretty;
-//   print "</pre>";
-// }
 
 ?>
