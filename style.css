@@ -176,11 +176,10 @@ html, body{
 }
 
 /* hailu button position quick and dirty */
-#saveForm {
+.button-container {
   position: relative;
   top: 485px;
   left: 40px;
-
 }
 
 .button_text {
@@ -261,6 +260,7 @@ div.ui-dialog-buttonpane button {
   display: block;
   margin: 0px auto 20px auto;
 }
+
 .ui-widget-overlay
 {
   position: absolute; top: 0; left: 0; width: 10000px; height: 10000px;

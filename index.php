@@ -67,7 +67,10 @@
           </li>
           <li class="buttons">
             <input type="hidden" name="form_id" value="form-id" />
-            <input id="saveForm" type="submit" name="submit" value="Get code" />
+            <div class="button-container">
+              <input id="saveForm" type="submit" name="submit" value="Get code" />
+              <input id="preview_map" type="submit" name="preview" value="Preview" target="_blank" />
+            </div>
           </li>
           </ul>
         </form> 

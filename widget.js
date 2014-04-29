@@ -7,32 +7,61 @@ $( "#dialog" ).dialog({ modal: true,
                         position: { my: "center", at: "center", of: window },
                       });
 
-// $(".ui-dialog-titlebar-close", ui).hide();
 
-$('#form_geofeedia').submit(function(e) {
-  e.preventDefault();
+$(document).ready(function() {
+  $('#form_geofeedia').submit(function(e) {
+    e.preventDefault();
 
-  var url = "submit.php"; 
+    var formdata = $("#form_geofeedia").serialize();
+    var val = $("input[type=submit][clicked=true]").val();
+    var url = "submit.php"; 
+    var prevurl = "preview.php";
 
-  $.ajax({
-    type: "POST",
-    url: url,
-    data: $("#form_geofeedia").serialize() 
-    
-  }).done(function(data) {
-    // var data = $.parseJSON(data);
+    if (val == 'Get code') {
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: formdata
+        
+      }).done(function(data) {
 
-    console.log(data);
-   
-    $('textarea').val(data);
+        console.log(data);
+       
+        $('textarea').val(data);
 
-    $('#dialog').dialog("open");
+        $('#dialog').dialog("open");
+
+      });
+    };
+    if (val == 'Preview') {
+      $.ajax({
+        type: "POST",
+        url: prevurl,
+        data: formdata,
+        async: false
+        
+      }).done(function(data) {
+        // var data = $.parseJSON(data);
+
+        console.log(data);
+        window.open(data, '_blank');
+
+        // $('textarea').val(data);
+
+        // $('#dialog').dialog("open");
+
+      });
+    };
+
+
 
   });
 
-  
-
 });
 
+$("form input[type=submit]").click(function() {
+    $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
+    $(this).attr("clicked", "true");
+});
 
 
