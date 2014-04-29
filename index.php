@@ -39,7 +39,7 @@
             </li>   
             <li id="li_3" >
               <div>
-                <input value="" id="collection_feed_id" name="collection" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia Feed or Collection ID" onfocus="if (this.placeholder == '&nbsp;Geofeedia Feed or Collection ID') {this.placeholder=''}"/> 
+                <input value="" id="collection_feed_id" name="collection" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia Collection ID" onfocus="if (this.placeholder == '&nbsp;Geofeedia Collection ID') {this.placeholder=''}"/> 
               </div> 
             </li>   
             <li id="li_4" >
@@ -68,8 +68,8 @@
           <li class="buttons">
             <input type="hidden" name="form_id" value="form-id" />
             <div class="button-container">
-              <input id="saveForm" type="submit" name="submit" value="Get code" />
-              <input id="preview_map" type="submit" name="preview" value="Preview" target="_blank" />
+              <input id="saveForm" class="button_text" type="submit" name="submit" value="Get code" />
+              <input id="preview_map" class="button_text" type="submit" name="preview" value="Preview" target="_blank" />
             </div>
           </li>
           </ul>

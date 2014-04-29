@@ -179,56 +179,39 @@ html, body{
 .button-container {
   position: relative;
   top: 485px;
-  left: 40px;
+  left: 30px;
+  width: 200px;
 }
 
 .button_text {
-  display:inline;
-  position: absolute;
-  margin: 10px;
-  top: 490px;
-  left: 30px;   
- -moz-box-shadow:inset 0px 1px 0px 0px #3d6ab2;
-  -webkit-box-shadow:inset 0px 1px 0px 0px #3d6ab2;
-  box-shadow:inset 0px 1px 0px 0px #3d6ab2;
-  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3d6ab2), color-stop(1, #3d6ab2) );
-  background:-moz-linear-gradient( center top, #3d6ab2 5%, #3d6ab2 100% );
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d6ab2', endColorstr='#1e62d0');
+  display:block;
+  position: relative;
+  z-index: 999; 
+  height:25px;
+  width:95px;
+  margin: 10px;  
+  line-height:40px;
   background-color:#3d6ab2;
-  -webkit-border-top-left-radius:0px;
-  -moz-border-radius-topleft:0px;
-  border-top-left-radius:0px;
-  -webkit-border-top-right-radius:0px;
-  -moz-border-radius-topright:0px;
-  border-top-right-radius:0px;
-  -webkit-border-bottom-right-radius:0px;
-  -moz-border-radius-bottomright:0px;
-  border-bottom-right-radius:0px;
-  -webkit-border-bottom-left-radius:0px;
-  -moz-border-radius-bottomleft:0px;
-  border-bottom-left-radius:0px;
-  text-indent:0;
   border:1px solid #3d6ab2;
-  display:inline;
   color:#ffffff;
   font-family: sans-serif;
   font-size:13px;
   font-weight:600;
   font-style:normal;
-  height:25px;
-  line-height:40px;
-  width:100px;
   text-decoration:none;
   text-align:center;
-  text-shadow:1px 1px 0px #3d6ab2;
 }
-.button_text:hover {
-  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3d6ab2), color-stop(1, #3d6ab2) );
-  background:-moz-linear-gradient( center top, #3d6ab2 5%, #3d6ab2 100% );
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d6ab2');
-  background-color:#3d6ab2;
-}.button_text:active {
-  position:absolute;
+#preview_map{
+  left: 125px;
+  bottom: 35px;
+}
+#preview_map:active {
+  bottom: 34px;
+}
+#saveForm{
+
+}
+#saveForm:active {
   top:1px;
 }
 
