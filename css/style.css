@@ -763,3 +763,8 @@ outline: none;
 a:active {
 color: #D1700E;
 }
+
+iframe.preview{
+margin: 0 auto;
+display: inherit;
+}

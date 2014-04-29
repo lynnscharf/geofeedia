@@ -1,5 +1,4 @@
 <?php
-// print_r($_SERVER['REQUEST_METHOD']);
 include_once('db-connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -14,11 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  */
 function gf_insert($post, $db) {
 
-  // print "<pre>";n
-  // print_r($_POST);
-  // print "</pre>";
-
-  // todo: more better encryption!
   $guid = crypt($post['appid'].$post['appkey'].$post['collection'].$post['location'].$post['height'].$post['width']);
 
   // we escape strings

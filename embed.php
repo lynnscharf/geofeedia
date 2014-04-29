@@ -17,8 +17,6 @@
 var map;
 var url = "https://api.geofeedia.com/v1/search/collection/<?php print $_GET['collection']; ?>?appId=<?php print $_GET['appid']; ?>&appKey=<?php print $_GET['appkey']; ?>";
 
-console.log(url);
-
 function initialize() {
     prepGoogleAPI();
     $.getJSON(url, geofeediaJson);
@@ -64,16 +62,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </head>
   <body>
 
-    <?php 
-
-
-// print "<pre>";
-// print  "width: " . $_GET['width'];
-// print "height: " . $_GET['height']; 
-
-// print "</pre>";
-// die;
-?>
 <div id="container"></div>
   <div id="map-canvas" ></div>
       <div id="map_info_panel" class="info_popup">

@@ -269,6 +269,12 @@ div.ui-dialog-buttonpane button {
 
   background-color: rgb(50, 50, 50) !important; /* This will make it darker */
 }
+
+iframe.preview {
+  display: inherit;
+  margin: 0 auto;
+}
+
 /*light background #F2F2F2
 dark header background #CFCFCF
 Submit Button #3D6AB2

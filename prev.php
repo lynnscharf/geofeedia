@@ -66,18 +66,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
     <?php 
 
-
-// print "<pre>";
-// print_r($_SERVER['HTTP_HOST']);
-// print_r($_GET); 
-
-// print "</pre>";
-// die;
-
 if (($_GET['width'] || $_GET['height']) == '0') {
-    print "<iframe height='" . $_GET['height'] . "' width='" . $_GET['width'] . "' src='http://" . $_SERVER['HTTP_HOST'] . "/embed.php?guid=" . $_GET['guid'] . "&appid=" . $_GET['appid'] . "&appkey=" . $_GET['appid'] . "&collection=" . $_GET['collection'] . "&lat=" . $_GET['lat'] . "&lon=" . $_GET['lon'] . "&zoom=" . $_GET['zoom'] . "' style='width: 100%; height: 100%;'></iframe>";
+    print "<iframe class='preview' height='" . $_GET['height'] . "' width='" . $_GET['width'] . "' src='http://" . $_SERVER['HTTP_HOST'] . "/embed.php?guid=" . $_GET['guid'] . "&appid=" . $_GET['appid'] . "&appkey=" . $_GET['appid'] . "&collection=" . $_GET['collection'] . "&lat=" . $_GET['lat'] . "&lon=" . $_GET['lon'] . "&zoom=" . $_GET['zoom'] . "' style='width: 100%; height: 100%;'></iframe>";
   } else {
-    print "<iframe height='" . $_GET['height'] . "' width='" . $_GET['width'] . "' src='http://" . $_SERVER['HTTP_HOST'] . "/embed.php?guid=" . $_GET['guid'] . "&appid=" . $_GET['appid'] . "&appkey=" . $_GET['appid'] . "&collection=" . $_GET['collection'] . "&lat=" . $_GET['lat'] . "&lon=" . $_GET['lon'] . "&zoom=" . $_GET['zoom'] . "'></iframe>";
+    print "<iframe class='preview' height='" . $_GET['height'] . "' width='" . $_GET['width'] . "' src='http://" . $_SERVER['HTTP_HOST'] . "/embed.php?guid=" . $_GET['guid'] . "&appid=" . $_GET['appid'] . "&appkey=" . $_GET['appid'] . "&collection=" . $_GET['collection'] . "&lat=" . $_GET['lat'] . "&lon=" . $_GET['lon'] . "&zoom=" . $_GET['zoom'] . "'></iframe>";
   }
 ?>
 

@@ -24,13 +24,9 @@ $(document).ready(function() {
         data: formdata
         
       }).done(function(data) {
-
-        console.log(data);
-       
         $('textarea').val(data);
 
         $('#dialog').dialog("open");
-
       });
     };
 
@@ -42,22 +38,10 @@ $(document).ready(function() {
         async: false
         
       }).done(function(preview_url) {
-        // var data = $.parseJSON(data);
-        // we have the full iframe as data
-
         window.open(preview_url, '_blank');
-
-        // $('textarea').val(data);
-
-        // $('#dialog').dialog("open");
-
       });
     };
-
-
-
   });
-
 });
 
 $("form input[type=submit]").click(function() {
