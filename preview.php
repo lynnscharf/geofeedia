@@ -75,8 +75,13 @@ function return_data($guid, $db) {
   $lon = $locjson->lon;
   $zoom = $locjson->zoom;
 
-  $string = $host . "/embed.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom;
-  
+  if (($width || $height) == '0') {
+    $string = $host . "/prev.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "&height=100%&width=100%";
+    
+  } else {
+    $string = $host . "/prev.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "&height=" . $height . "&width=" . $width;
+  };
+
   print $string;
 }
 

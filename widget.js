@@ -33,6 +33,7 @@ $(document).ready(function() {
 
       });
     };
+
     if (val == 'Preview') {
       $.ajax({
         type: "POST",
@@ -40,11 +41,11 @@ $(document).ready(function() {
         data: formdata,
         async: false
         
-      }).done(function(data) {
+      }).done(function(preview_url) {
         // var data = $.parseJSON(data);
+        // we have the full iframe as data
 
-        console.log(data);
-        window.open(data, '_blank');
+        window.open(preview_url, '_blank');
 
         // $('textarea').val(data);
 
