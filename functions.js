@@ -1,5 +1,6 @@
 var map, google, jsonItems, navId, oldIcon, lastSelected, allMarkers = [];
-var url = "https://api.geofeedia.com/v1/search/collection/11263?appId=715505bb&appKey=cdb5927a7561bc1323e2442e465d1a2d";
+//var url = "https://api.geofeedia.com/v1/search/collection/11263?appId=715505bb&appKey=cdb5927a7561bc1323e2442e465d1a2d";
+var url = "https://api.geofeedia.com/v1/search/collection/11330?appId=715505bb&appKey=cdb5927a7561bc1323e2442e465d1a2d";
 var spritePath = "css/images/sprite-main.png";
 function convertTime(rawDate) {
     //The time of a media post is available through the API (.publishDate) in GMT 
@@ -51,68 +52,58 @@ function determineMediaNum(mediaSource) {
         sprite = 434;
         hlSprite = 395;
     } else {
-        console.log("This is a new or misinterpreted media type.  Defaulting to Instagram settings, please consult map admin");
+        console.log("This is a new or misinterpreted media type.  Defaulting to Instagram settings.");
 		sprite = 278;
 		hlSprite = 83;
     }
     return [sprite, hlSprite];
 }
 
-function crawlForImages(theObject) {
-	"use strict";
+function crawlForImages(theObject){
+    var picStatus;
+    var string;
     var pathEnd;
-	var string;
     var altString;
-    if (theObject.source === "facebook") {
+     if (theObject.source === "facebook") {
+        if (theObject.mediaItems['0'] === undefined) {
+            string = theObject.title;
+            pathEnd = "<img src=" + string + 'onerror="imgError(this);"/>';
+        } else {
+                string = JSON.stringify(theObject.mediaItems['0'].media['1'].standard_resolution.url);
+                altString = JSON.stringify(theObject.title);
+                pathEnd = "<a target='_blank' href=" + string + "><img style='color: #eeeeee;' src=" + string + "alt =" + altString + "/></a>";
+                } 
+        }
+    else if (theObject.source === "twitter" || theObject.source === "picasa" || theObject.source === "flickr") {
             if (theObject.mediaItems['0'] === undefined) {
                 string = theObject.title;
                 pathEnd = "<img src=" + string + 'onerror="imgError(this);"/>';
             } else {
-                string = JSON.stringify(theObject.mediaItems['0'].media['1'].standard_resolution.url);
+                string = JSON.stringify(theObject.mediaItems['0'].media['0'].standard_resolution.url);
                 altString = JSON.stringify(theObject.title);
-                pathEnd = "<img src=" + string + "alt =" + altString + "/>";
-            } } 
-    else if (theObject.source === "twitter") {
-    		if (theObject.mediaItems['0'] === undefined) {
-    			string = theObject.title;
-    			pathEnd = "<img src=" + string + 'onerror="imgError(this);"/>';
-    		} else {
-    			string = JSON.stringify(theObject.mediaItems['0'].media['0'].standard_resolution.url);
-    			altString = JSON.stringify(theObject.title);
-                pathEnd = "<img src=" + string + "alt =" + altString + "/>";
-    		} } 
+                pathEnd = "<a target='_blank' href=" + string + "><img style='color: #eeeeee;' src=" + string + "alt =" + altString + "/></a>";
+                    } 
+            } 
     else if (theObject.source === "instagram") {
-        string = JSON.stringify(theObject.mediaItems['0'].media['1'].low_resolution.url);
-        altString = JSON.stringify(theObject.title);
-		pathEnd = "<img src=" + string + "alt =" + altString + "/>";
-	} 
-    else if (theObject.source === "picasa") {
-		string = JSON.stringify(theObject.mediaItems['0'].media['0'].standard_resolution.url);
-		altString = JSON.stringify(theObject.title);
-        pathEnd = "<img src=" + string + "alt =" + altString + "/>";
-	} else if (theObject.source === "flickr") {
-		string = JSON.stringify(theObject.mediaItems['0'].media['0'].standard_resolution.url);
-		altString = JSON.stringify(theObject.title);
-        pathEnd = "<img src=" + string + "alt =" + altString + "/>";
-	} else if (theObject.source === "youtube") {
-		string = JSON.stringify(theObject.mediaItems['0'].media['1'].iframe_src_url.url);
-		altString = JSON.stringify(theObject.title);
-        pathEnd = '<iframe width="100%" height="100%" src=' + string + 'alt=' + altString + '></iframe>';
-	} else if (theObject.source === "viddy") {
-		string = JSON.stringify(theObject.mediaItems['0'].media['0'].standard_resolution.url);
-		altString = JSON.stringify(theObject.title);
-        pathEnd = '<iframe width="100%" height="100%" src=' + string + 'alt=' + altString + '></iframe>';
-	} else {
-		console.log("This is a new or misinterpreted media type.  Defaulting to Instagram settings, please consult admin");
-		string = JSON.stringify(theObject.mediaItems['0'].media['1'].low_resolution.url);
-		altString = JSON.stringify(theObject.title);
-        pathEnd = "<img src=" + string + "alt =" + altString + "/>";
-	}
-	if (pathEnd === undefined) {
-		string = theObject.title + 'onerror="imgError(this);"/>';
-		pathEnd = "<src=" + string;
-	}
-return pathEnd;
+                string = JSON.stringify(theObject.mediaItems['0'].media['1'].low_resolution.url);
+                altString = JSON.stringify(theObject.title);
+                pathEnd = "<a target='_blank' href=" + string + "><img style='color: #eeeeee;' src=" + string + "alt =" + altString +  'onerror="imgError(this);"' + "/></a>";
+    } 
+    else if (theObject.source === "youtube") {
+                string = JSON.stringify(theObject.mediaItems['0'].media['1'].iframe_src_url.url);
+                altString = JSON.stringify(theObject.title);
+                pathEnd = "<iframe scrolling='no' width='100%' height='100%' src=" + string + "></iframe>";
+    } 
+    else if (theObject.source === "viddy") {
+                string = JSON.stringify(theObject.mediaItems['0'].media['0'].standard_resolution.url);
+                altString = JSON.stringify(theObject.title);
+                pathEnd = "<iframe style='max-height:100%; max-width:100%; padding-top: 20%; border: none;' src=" + string + "></iframe>";
+    }
+    else {
+                string = theObject.title;
+                pathEnd = "<img src=" + string + 'onerror="imgError(this);"/>';
+    }   
+    return pathEnd;
 }
 
 function loadIndexData(jsonItems, navId) {
@@ -124,9 +115,17 @@ function loadIndexData(jsonItems, navId) {
         indxImgLink = crawlForImages(jsonItems[navId]);
         document.getElementById("info_popup_content").innerHTML = indxImgLink;
     }
-    document.getElementById("tweet_name").innerHTML = "By&nbsp;" + jsonItems[navId].author.name;
+   if (jsonItems[navId].source === "youtube"){
+    var authorYouTube = jsonItems[navId].author.url;
+    var split = authorYouTube.split("/");
+    var authorLink = "http://www.youtube.com/user/" + split[6];
+    document.getElementById("tweet_name").innerHTML = '<a target="_blank" href =' + authorLink + '>' + "By&nbsp;" + jsonItems[navId].author.name + '</a>';
+   } else {
+    var authorLink = jsonItems[navId].author.url;
+    document.getElementById("tweet_name").innerHTML = '<a target="_blank" href =' + authorLink + '>' + "By&nbsp;" + jsonItems[navId].author.name + '</a>';
+}
     indxConvertedTime = convertTime(jsonItems[navId].publishDate);
-    document.getElementById("tweet_time").innerHTML = indxConvertedTime;
+    document.getElementById("tweet_time").innerHTML = '<a target="_blank" href =' + authorLink + '>' + indxConvertedTime + '</a>';
     map.panTo(new google.maps.LatLng(jsonItems[navId].latitude, jsonItems[navId].longitude));
 }
 
@@ -146,6 +145,7 @@ function loadLocationData(jsonItems) {
             position: location,
             map: map,
             author: myPin.author.name,
+            authorUrl: myPin.author.url,
             source: myPin.source,
             publishDate: myPin.publishDate,
             publishTime: convertedTime,
@@ -167,8 +167,16 @@ function loadLocationData(jsonItems) {
             infowindow.setContent();
             navId = this.pinIndex;
             mediaCheck = JSON.stringify(this.mediaPreview);
-            document.getElementById("tweet_name").innerHTML = "By&nbsp;" + this.author;
-            document.getElementById("tweet_time").innerHTML = this.publishTime;
+           if (this.source === "youtube"){
+            var authorYouTube = this.authorUrl;
+            var split = authorYouTube.split("/");
+            var authorLink = "http://www.youtube.com/user/" + split[6];
+            document.getElementById("tweet_name").innerHTML = '<a target="_blank" href =' + authorLink + '>' + "By&nbsp;" + this.author + '</a>';
+           } else {
+            var authorLink = this.authorUrl;
+            document.getElementById("tweet_name").innerHTML = '<a target="_blank" href =' + authorLink + '>' + "By&nbsp;" + this.author + '</a>';
+        }
+            document.getElementById("tweet_time").innerHTML = '<a target="_blank" href =' + authorLink + '>' + this.publishTime + '</a>';
             if (mediaCheck === undefined) {
                 document.getElementById("info_popup_content").innerHTML = '<div class="tweet-text">' + this.tweetTitle + '</div>';
             } else {
@@ -177,6 +185,7 @@ function loadLocationData(jsonItems) {
          //   map.panTo(this.getPosition());  //un-comment if you'd like icon clicks to pan to clicked icon
             infowindow.open();
             highlightController(allMarkers, navId, jsonItems);
+            buttonStyle(navId);
         });
         }
 }
@@ -216,9 +225,8 @@ function findMarker(allMarkers, navId) {
 
 function imgError(image) {
     "use strict";
-    console.log(image);
-    image.onerror = "";
-    image.src = image;
+    var newSrc = JSON.stringify(image.alt);
+    document.getElementById("info_popup_content").innerHTML = '<div class="tweet-text" style="color: #505050;">' + newSrc + '</div>';
     return true;
 }
 
@@ -271,26 +279,27 @@ function buttonStyle(navId) {
 
 function geofeediaJson(response) {
     "use strict";
+    var apiResponseCode = response.result.responseCode;
+    if (apiResponseCode === 200) {
     jsonItems = response.items;
 	navId = Math.round(jsonItems.length / 2);
     loadIndexData(jsonItems, navId);
     loadLocationData(jsonItems);
     highlightController (allMarkers, navId, jsonItems);
+    } else {
+    alert("The API was not able to retrieve data.\nPlease reload this page, or try visiting again later.\n\nResponse Code: " + apiResponseCode);
+    }
 }
 
 function showInfo(){
-    if (info_box.style.display === 'block') {
-         document.getElementById('info_box').style.display = 'none';
-    } else if (info_box.style.display === 'none') {
-        document.getElementById('info_box').style.display = 'block';
-    } else {
-        document.getElementById('info_box').style.display = 'none';
-    }
+$( "#info_box" ).toggle( "slide" );
 }
+
+
 
 function prepGoogleAPI() {
     "use strict"
     var div = document.createElement('div');
-    div.innerHTML = '<span id="logo_background"></span><a ><img id="infolinkimg" src= "css/images/info-icon.png"  onclick="showInfo();"></a><div id="info_box" style="display: none;">This live map was created <br> using Geofeedia, the pioneer <br>in real-time, location-based <br> social media monitoring.<p/> <hr> <a href="http://www.geofeedia.com">www.geofeedia.com</a><span><img id="popup_close" src="css/images/popup-close.png" onclick="showInfo();"></span> </div><a href="http://www.geofeedia.com"><img id="logo" src= "css/images/geofeedia_logo_final_white2.png"></a><a id="attribution" href="http://www.SilverleafGeospatial.com"> SilverleafGeospatial.com </a>';
+    div.innerHTML = '<span id="logo_background"></span><a ><img id="infolinkimg" src= "css/images/info-icon.png"  onclick="showInfo();"></a><div id="info_box" style="display: none;">This map is powered by Geofeedia - <a href="http://geofeedia.com/?utm_source=info_box&utm_medium=link&utm_campaign=map_widgets">geofeedia.com</a><span><img id="popup_close" onclick="showInfo();"></span> </div><a href="http://geofeedia.com/?utm_source=logo&utm_medium=link&utm_campaign=map_widgets"><img id="logo" src= "css/images/geofeedia_logo_final_white2.png"></a><a id="attribution" href="http://www.SilverleafGeospatial.com"> SilverleafGeospatial.com </a>';
      document.getElementById('container').appendChild(div);
 }
