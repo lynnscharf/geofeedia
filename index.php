@@ -37,6 +37,7 @@ function removeSearchGlass(){
 
 
     <body id="main_body" >
+      <div id='logo_background'><img id='logo' src='css/images/geofeedia_logo_final_white2.png'></div></div>
       <div id="form_container">
         <h1 id="form_header"><a></a></h1>
         <form id="form_geofeedia" method="post" action="">

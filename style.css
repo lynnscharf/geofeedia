@@ -22,7 +22,6 @@ html, body{
       padding: 0;
   }
 }
-
 #main_body{
   height: 650px;
   width: 500px;
@@ -30,12 +29,29 @@ html, body{
   padding: 0px;
   background-color: #FFFFFF;
 }
+#logo_background{
+  z-index: 999;
+position: fixed;
+top: 0px;
+left: 0px;
+height: 35px;
+width: 100%;
+background-color: #141414;  
+}
+#logo{
+position: relative;
+top: 0px;
+left: 12px;
+height: 35px;
+padding: 0px 0px 0px 0px;
+max-width: 100%;
+}
 #form_geofeedia{
   position: absolute;
   background-color: #CFCFCF;
   height: 50px;
   width: 95%;
-  top: 0px;
+  top: 25px;
   padding-left: 5%;
   text-align: left;
   font-size: 13px;
