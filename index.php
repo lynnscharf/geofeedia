@@ -29,17 +29,17 @@
           <ul id="U_list">
             <li id="li_1" >
               <div>
-                <input value="" id="app_id" name="appid" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia appID" onfocus="if (this.placeholder == '&nbsp;Geofeedia appID') {this.placeholder=''}"/> 
+                <input value="715505bb" id="app_id" name="appid" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia appID" onfocus="if (this.placeholder == '&nbsp;Geofeedia appID') {this.placeholder=''}"/> 
               </div> 
             </li>   
             <li id="li_2" >
               <div>
-                <input value="" id="app_key" name="appkey" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia appKey" onfocus="if (this.placeholder == '&nbsp;Geofeedia appKey') {this.placeholder=''}"/> 
+                <input value="cdb5927a7561bc1323e2442e465d1a2d" id="app_key" name="appkey" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia appKey" onfocus="if (this.placeholder == '&nbsp;Geofeedia appKey') {this.placeholder=''}"/> 
               </div> 
             </li>   
             <li id="li_3" >
               <div>
-                <input value="" id="collection_feed_id" name="collection" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia Collection ID" onfocus="if (this.placeholder == '&nbsp;Geofeedia Collection ID') {this.placeholder=''}"/> 
+                <input value="11330" id="collection_feed_id" name="collection" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia Collection ID" onfocus="if (this.placeholder == '&nbsp;Geofeedia Collection ID') {this.placeholder=''}"/> 
               </div> 
             </li>   
             <li id="li_4" >

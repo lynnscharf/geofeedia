@@ -47,15 +47,14 @@ function gf_insert($post, $db) {
                                     'width' => $post['width'],
                                     'height' => $post['height']
                                     ));
-  return_data($guid, $db);
+  return_data($guid, $post['height'], $post['width']);
 }
 
 /**
  * Retrieve data, prepare iframe
  * @var $guid guid created on insert
- * @var $db database connection object
  */
-function return_data($guid) {
+function return_data($guid, $height, $width) {
   
 
   if (($width || $height) == '0') {
