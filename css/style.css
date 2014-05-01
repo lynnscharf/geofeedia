@@ -10,7 +10,7 @@ background-color: #141414;
 }
 @media screen and (max-width: 700px){
 /* CSS for phone */
-#popup_close{
+/*#popup_close{
 display: block;
 top: 25px;
 right: 2px;
@@ -18,30 +18,31 @@ width: 7px;
 height:  7px;
 position: fixed;
 cursor: pointer;
-}
+}*/
 #logo_background{
 z-index: 998;
 position: fixed;
-top: 0px;
+bottom: 0px;
 left: 0px;
 height: 20px;
 width: 100%;
-background-color: #141414;	
+background-color: #141414;
+opacity: .8	
 }
 #logo{
 z-index: 999;
 position: fixed;
-top: 0px;
+bottom: 0px;
 left: 0px;
 height: 20px;
 padding: 0px 0px 0px 0px;
 max-width: 100%;
-background-color: #141414;
+background-color: none;
 }
 #infolinkimg{
 z-index: 999;
 position: fixed;
-top: 0px;
+bottom: 0px;
 right: 0px;
 height: 12px;
 padding: 4px 4px 4px 4px;
@@ -58,31 +59,34 @@ cursor: pointer;
 #info_box{
 z-index: 999;
 position: fixed;
-top: 20px;
-right: -1px;
-height: 95px;
-width: 118px;
-padding: 5px 5px 2px 5px;
+bottom: 0px;
+right: 20px;
+height: 12px;
+width: 210px;
+padding: 3px 5px 5px 5px;
 background-color: #ffffff;
 color: #555555;
 text-align: center;
 font-size: 8px;
 font-weight: 600;
-border: 1px solid #666666;
+opacity: .7;
+/*border: 1px solid #666666;
 -moz-box-shadow:    0px 2px 4px 0px rgba(0,0,0,0.35);
 -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.35);
 box-shadow:         0px 2px 4px 0px rgba(0,0,0,0.35);
+*/
 }
 #attribution{
 z-index: 1;
 position: fixed;
-bottom: 5px;
-left: 70px;
+bottom: 1px;
+left: 170px;
 background-color: none;
 vertical-align: baseline;
 font-weight: normal;
 color: white;
 font-size: 9px;
+display: none;
 }
 #newPos{
 position: relative;
@@ -97,8 +101,8 @@ margin: 5px 0 0 -130px;
 z-index: 999;
 display: block;
 position: absolute;
-right: 4px;
-bottom: 6px;
+right: 0px;
+bottom: 20px;
 width: 126px;
 height: 170px;
 padding: 4px;
@@ -110,20 +114,23 @@ margin: 0;
 padding: 0;
 }
 .tweet-name{
+text-overflow: ellipsis;
+white-space: nowrap;
 font-size: 7pt;
 font-weight: bold;
 display: block;
 height: 19px;
 margin: 0;
 padding: 0;
+overflow: hidden;
 }
 .tweet-time{
 padding:0;
 margin:0;
 width: 100%;
 text-align: center;
-font-size: 9px;
-padding-top: 6px;
+font-size: 8px;
+padding-top: 4px;
 }
 #info_popup_content{
 padding: 0;
@@ -131,12 +138,14 @@ margin: 0;
 margin-top: 2px;
 height: 126px;
 width: 126px;
+overflow: hidden;
 }
 #info_popup_content img{
-margin: 0;
 padding: 0;
-height: 126px;
-width: 126px;
+max-height: 126px;
+max-width: 126px;
+display : block;
+margin : 5px auto;
 }
 #info_popup_content .tweet-text {
 font-size: 10px;
@@ -246,7 +255,7 @@ padding-top: 6px;
 }
 @media screen and (min-width: 701px) and (max-width: 900px){
 /*CSS for tablet*/
-#popup_close{
+/*#popup_close{
 display: block;
 top: 40px;
 right: 3px;
@@ -254,30 +263,31 @@ width: 15px;
 height:  15px;
 position: fixed;
 cursor: pointer;
-}
+}*/
 #logo_background{
 z-index: 998;
 position: fixed;
-top: 0px;
+bottom: 0px;
 left: 0px;
 height: 35px;
 width: 100%;
 background-color: #141414;	
+opacity: .8;
 }
 #logo{
 z-index: 999;
 position: fixed;
-top: 0px;
+bottom: 0px;
 left: 0px;
-height: 20px;
-padding: 6px 5px 5px 5px;
+height: 26px;
+padding: 0px 5px 3px 5px;
 max-width: 100%;
-background-color: #141414;
+background-color: none;
 }
 #infolinkimg{
 z-index: 999;
 position: fixed;
-top: 0px;
+bottom: 0px;
 right: 0px;
 height: 17px;
 padding: 9px 9px 9px 9px;
@@ -294,31 +304,35 @@ cursor: pointer;
 #info_box{
 z-index: 999;
 position: fixed;
-top: 35px;
-right: -1px;
-height: 110px;
-width: 142px;
-padding: 15px 15px 5px 15px;
-background-color: #ffffff;
+bottom: 0px;
+right: 35px;
+height: 20px;
+width: 285px;
+padding: 10px 10px 5px 10px;
+background-color: #eeeeee;
 color: #555555;
 text-align: center;
 font-size: 10px;
 font-weight: 600;
-border: 1px solid #666666;
+opacity: .8;
+/*border: 1px solid #666666;
 -moz-box-shadow:    0px 2px 4px 0px rgba(0,0,0,0.35);
 -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.35);
 box-shadow:         0px 2px 4px 0px rgba(0,0,0,0.35);
+*/
 }
 #attribution{
 z-index: 1;
 position: fixed;
-bottom: 5px;
-left: 70px;
+bottom: 10px;
+left: 170px;
 background-color: none;
 vertical-align: baseline;
 font-weight: normal;
 color: white;
 font-size: 9px;
+color: #141414;
+display: none;
 }
 #newPos{
 position: relative;
@@ -333,8 +347,8 @@ margin: 15px 0 0 -130px;
 z-index: 999;
 display: block;
 position: absolute;
-right: 6px;
-bottom: 8px;
+right: 0px;
+bottom: 35px;
 width: 180px;
 height: 242px;
 padding: 6px;
@@ -346,12 +360,15 @@ margin: 0;
 padding: 0;
 }
 .tweet-name{
+text-overflow: ellipsis;
+white-space: nowrap;
 font-size: 9pt;
 font-weight: bold;
 display: block;
-height: 11px;
+height: 14px;
 margin: 0;
 padding: 0;
+overflow: hidden;
 }
 .tweet-time{
 padding:0;
@@ -359,7 +376,7 @@ margin:0;
 width: 100%;
 text-align: center;
 font-size: 11px;
-padding-top: 8px;
+padding-top: 6px;
 }
 #info_popup_content{
 padding: 0;
@@ -367,18 +384,20 @@ margin: 0;
 margin-top: 5px;
 height: 180px;
 width: 180px;
+overflow: hidden;
 }
 #info_popup_content img{
-margin: 0;
 padding: 0;
-height: 180px;
-width: 180px;
+max-height: 180px;
+max-width: 180px;
+display : block;
+margin : 10px auto;
 }
 #info_popup_content .tweet-text {
-font-size: 16px;
-line-height: 16px;
+font-size: 15px;
+line-height: 18px;
 font-weight: bold;
-margin-top: 22px;
+margin-top: 20px;
 color: #505050;
 padding: 17px 17px 17px 17px;
 }
@@ -482,7 +501,7 @@ padding-top: 8px;
 }
 @media screen and (min-width: 901px){
 /* CSS for computer */
-#popup_close{
+/*#popup_close{
 display: block;
 top: 65px;
 right: 5px;
@@ -490,33 +509,34 @@ width: 20px;
 height:  20px;
 position: fixed;
 cursor: pointer;
-}
+}*/
 #logo_background{
 z-index: 998;
 position: fixed;
-top: 0px;
+bottom: 0px;
 left: 0px;
-height: 60px;
+height: 41px;
 width: 100%;
-background-color: #141414;	
+background-color: #141414;
+opacity: .8;	
 }
 #logo{
 z-index: 999;
 position: fixed;
-top: 0px;
+bottom: 0px;
 left: 0px;
-height: 32px;
-padding: 13px 12px 12px 12px;
+height: 30px;
+padding: 0px 5px 7px 5px;
 max-width: 100%;
-background-color: #141414;
+background-color: none;
 }
 #infolinkimg{
 z-index: 999;
 position: fixed;
-top: 0px;
+bottom: 0px;
 right: 0px;
-height: 22px;
-padding: 19px 19px 19px 19px;
+height: 19px;
+padding: 11px 11px 11px 11px;
 max-width: 100%;
 background-color: #4F81BD;
 border-style: solid;
@@ -531,31 +551,35 @@ cursor: pointer;
 display: none;
 z-index: 999;
 position: fixed;
-top: 60px;
-right: -1px;
-height: 105px;
-width: 170px;
-padding: 30px 30px 10px 30px;
-background-color: #ffffff;
-color: #555555;
+bottom: 0px;
+right: 41px;
+height: 29px;
+width: 325px;
+background-color: #eeeeee;
+padding-top: 12px;
+color: #333333;
 text-align: center;
-font-size: 12px;
+font-size: 11px;
 font-weight: 600;
-border: 1px solid #666666;
+opacity: .7;
+/*border: 1px solid #666666;
 -moz-box-shadow:    0px 2px 4px 0px rgba(0,0,0,0.35);
 -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.35);
 box-shadow:         0px 2px 4px 0px rgba(0,0,0,0.35);
+*/
 }
 #attribution{
 z-index: 999;
 position: fixed;
-bottom: 5px;
-left: 80px;
+bottom: 10px;
+left: 95px;
 background-color: none;
 vertical-align: baseline;
 font-weight: normal;
-color: #dddddd;
+color: #171717;
 font-size: 10px;
+opacity: .4;
+display: none;
 }
 #newPos{
 position: relative;
@@ -569,8 +593,8 @@ margin: 24px 0 0 -130px;
 .info_popup{
 display: block;
 position: absolute;
-right: 8px;
-bottom: 8px;
+right: 0px;
+bottom: 40px;
 width: 258px;
 height: 346px;
 padding: 8px;
@@ -582,19 +606,22 @@ margin: 0;
 padding: 0;
 }
 .tweet-name{
-font-size: 12pt;
+text-overflow: ellipsis;
+white-space: nowrap;
+font-size: 11pt;
 font-weight: bold;
 display: block;
 height: 16px;
 margin: 0;
 padding: 0;
+overflow: hidden;
 }
 .tweet-time{
 padding:0;
 margin:0;
 width: 100%;
 text-align: center;
-font-size: 16px;
+font-size: 15px;
 padding-top: 12px;
 }
 #info_popup_content{
@@ -603,18 +630,20 @@ margin: 0;
 margin-top: 4px;
 height: 258px;
 width: 258px;
+overflow: hidden;
 }
 #info_popup_content img{
-margin: 0;
 padding: 0;
-height: 258px;
-width: 258px;
+max-height: 258px;
+max-width: 258px;
+display : block;
+margin : 15px auto;
 }
 #info_popup_content .tweet-text {
-font-size: 23px;
-line-height: 23px;
+font-size: 22px;
+line-height: 21px;
 font-weight: bold;
-margin-top: 32px;
+margin-top: 1px;
 color: #505050;
 padding: 25px 25px 25px 25px;
 }
@@ -762,9 +791,4 @@ outline: none;
 }
 a:active {
 color: #D1700E;
-}
-
-iframe.preview{
-margin: 0 auto;
-display: inherit;
 }
