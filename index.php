@@ -57,12 +57,12 @@
             </li>
             <li id="li_5" >
             <div>
-              <input value="400" id="map_width" name="width" class="map_w_h" type="text" maxlength="80" placeholder="&nbsp;Width (px)" onfocus="if (this.placeholder == '&nbsp;Width (px)') {this.placeholder=''}"/> 
+              <input value="" id="map_width" name="width" class="map_w_h" type="text" maxlength="80" placeholder="&nbsp;Width (px)" onfocus="if (this.placeholder == '&nbsp;Width (px)') {this.placeholder=''}"/> 
             </div> 
           </li>
           <li id="li_6" >
             <div>
-              <input value="500" id="map_height" name="height" class="map_w_h" type="text" maxlength="80" placeholder="&nbsp;Height (px)" onfocus="if (this.placeholder == '&nbsp;Height (px)') {this.placeholder=''}"/> 
+              <input value="" id="map_height" name="height" class="map_w_h" type="text" maxlength="80" placeholder="&nbsp;Height (px)" onfocus="if (this.placeholder == '&nbsp;Height (px)') {this.placeholder=''}"/> 
             </div> 
           </li>
           <li class="buttons">

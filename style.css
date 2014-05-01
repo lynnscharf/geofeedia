@@ -211,6 +211,9 @@ html, body{
 #preview_map:active {
   bottom: 34px;
 }
+#preview_map:focus {
+  outline:0;
+}
 #saveForm{
 
 }
@@ -218,6 +221,9 @@ html, body{
   top:1px;
 }
 
+#saveForm:focus {
+  outline:0;
+}
 input#location {
   display: none;
 }
