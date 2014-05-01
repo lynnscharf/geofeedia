@@ -12,18 +12,38 @@
   <script src="js/moment.min.js"></script>
   <script src="js/jquery-ui-map30rc1.min.js"></script>
   <script src="functions.js"></script>
+  
+  <?php
+    include_once('db-connection.php');
 
+    $statement = $db->prepare("select * from map where guid = :guid");
+    $statement->execute(array(':guid' => $_GET['guid']));
+
+    $row = $statement->fetch();
+    
+    $locjson = json_decode(str_replace("'",'"',$row['address_location']));
+
+    $height = $row['height'];
+    $width = $row['width'];
+    $guid = $row['guid'];
+    $app_id = $row['app_id'];
+    $app_key = $row['app_key'];
+    $collection = $row['collection'];
+    $lat = $locjson->lat;
+    $lon = $locjson->lon;
+    $zoom = $locjson->zoom;
+  ?>
 <script>
 var map;
-var url = "https://api.geofeedia.com/v1/search/collection/<?php print $_GET['collection']; ?>?appId=<?php print $_GET['appid']; ?>&appKey=<?php print $_GET['appkey']; ?>";
+var url = "https://api.geofeedia.com/v1/search/collection/<?php print $collection; ?>?appId=<?php print $app_id; ?>&appKey=<?php print $app_key; ?>";
 
 function initialize() {
     prepGoogleAPI();
     $.getJSON(url, geofeediaJson);
     
     var mapOptions = {
-        zoom: <?php print $_GET['zoom']; ?>,
-        center: new google.maps.LatLng(<?php print $_GET['lat']; ?>, <?php print $_GET['lon']; ?>),
+        zoom: <?php print $zoom; ?>,
+        center: new google.maps.LatLng(<?php print $lat; ?>, <?php print $lon; ?>),
         disableDefaultUI: true,
         streetViewControl: false,
         panControl: true,

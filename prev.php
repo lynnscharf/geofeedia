@@ -63,13 +63,31 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </script>
   </head>
   <body>
+<div id="container"></div>
+  <?php
+  include_once('db-connection.php');
 
-    <?php 
+  $statement = $db->prepare("select * from map where guid = :guid");
+  $statement->execute(array(':guid' => $_GET['guid']));
 
-if (($_GET['width'] || $_GET['height']) == '0') {
-    print "<iframe class='preview' height='" . $_GET['height'] . "' width='" . $_GET['width'] . "' src='http://" . $_SERVER['HTTP_HOST'] . "/embed.php?guid=" . $_GET['guid'] . "&appid=" . $_GET['appid'] . "&appkey=" . $_GET['appid'] . "&collection=" . $_GET['collection'] . "&lat=" . $_GET['lat'] . "&lon=" . $_GET['lon'] . "&zoom=" . $_GET['zoom'] . "' style='width: 100%; height: 100%;'></iframe>";
+  $row = $statement->fetch();
+  
+  $locjson = json_decode(str_replace("'",'"',$row['address_location']));
+
+  $height = $row['height'];
+  $width = $row['width'];
+  $guid = $row['guid'];
+  $app_id = $row['app_id'];
+  $app_key = $row['app_key'];
+  $collection = $row['collection'];
+  $lat = $locjson->lat;
+  $lon = $locjson->lon;
+  $zoom = $locjson->zoom;
+
+  if (($_GET['width'] || $_GET['height']) == '0') {
+    print "<iframe class='preview' height='" . $height . "' width='" . $width . "' src='http://" . $_SERVER['HTTP_HOST'] . "/embed.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "' style='width: 100%; height: 100%;'></iframe>";
   } else {
-    print "<iframe class='preview' height='" . $_GET['height'] . "' width='" . $_GET['width'] . "' src='http://" . $_SERVER['HTTP_HOST'] . "/embed.php?guid=" . $_GET['guid'] . "&appid=" . $_GET['appid'] . "&appkey=" . $_GET['appid'] . "&collection=" . $_GET['collection'] . "&lat=" . $_GET['lat'] . "&lon=" . $_GET['lon'] . "&zoom=" . $_GET['zoom'] . "'></iframe>";
+    print "<iframe class='preview' height='" . $height . "' width='" . $width . "' src='http://" . $_SERVER['HTTP_HOST'] . "/embed.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "'></iframe>";
   }
 ?>
 
