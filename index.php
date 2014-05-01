@@ -29,17 +29,21 @@
           <ul id="U_list">
             <li id="li_1" >
               <div>
-                <input value="" id="app_id" name="appid" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia appID" onfocus="if (this.placeholder == '&nbsp;Geofeedia appID') {this.placeholder=''}"/> 
+                <input value="715505bb" id="app_id" name="appid" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia appID" onfocus="if (this.placeholder == '&nbsp;Geofeedia appID') {this.placeholder=''}"/> 
               </div> 
             </li>   
             <li id="li_2" >
               <div>
-                <input value="" id="app_key" name="appkey" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia appKey" onfocus="if (this.placeholder == '&nbsp;Geofeedia appKey') {this.placeholder=''}"/> 
+                <input value="cdb5927a7561bc1323e2442e465d1a2d" id="app_key" name="appkey" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia appKey" onfocus="if (this.placeholder == '&nbsp;Geofeedia appKey') {this.placeholder=''}"/> 
               </div> 
             </li>   
             <li id="li_3" >
               <div>
+<<<<<<< HEAD
                 <input value="" id="collection_feed_id" name="collection" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia Collection ID" onfocus="if (this.placeholder == '&nbsp;Geofeedia Collection ID') {this.placeholder=''}"/> 
+=======
+                <input value="11330" id="collection_feed_id" name="collection" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia Feed or Collection ID" onfocus="if (this.placeholder == '&nbsp;Geofeedia Feed or Collection ID') {this.placeholder=''}"/> 
+>>>>>>> FETCH_HEAD
               </div> 
             </li>   
             <li id="li_4" >
@@ -57,12 +61,12 @@
             </li>
             <li id="li_5" >
             <div>
-              <input id="map_width" name="width" class="map_w_h" type="text" maxlength="80" placeholder="&nbsp;Width (px)" onfocus="if (this.placeholder == '&nbsp;Width (px)') {this.placeholder=''}"/> 
+              <input value="400" id="map_width" name="width" class="map_w_h" type="text" maxlength="80" placeholder="&nbsp;Width (px)" onfocus="if (this.placeholder == '&nbsp;Width (px)') {this.placeholder=''}"/> 
             </div> 
           </li>
           <li id="li_6" >
             <div>
-              <input id="map_height" name="height" class="map_w_h" type="text" maxlength="80" placeholder="&nbsp;Height (px)" onfocus="if (this.placeholder == '&nbsp;Height (px)') {this.placeholder=''}"/> 
+              <input value="500" id="map_height" name="height" class="map_w_h" type="text" maxlength="80" placeholder="&nbsp;Height (px)" onfocus="if (this.placeholder == '&nbsp;Height (px)') {this.placeholder=''}"/> 
             </div> 
           </li>
           <li class="buttons">
