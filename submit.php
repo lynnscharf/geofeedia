@@ -14,12 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  */
 function gf_insert($post, $db) {
 
-  // print "<pre>";n
-  // print_r($_POST);
+  // print "<pre>";
   // print "</pre>";
 
-  // todo: more better encryption!
-  $guid = crypt($post['appid'].$post['appkey'].$post['collection'].$post['location'].$post['height'].$post['width']);
+  $crypt = crypt($post['appid'].$post['appkey'].$post['collection'].$post['location'].$post['height'].$post['width']);
+
+  $guid = crypt($crypt);
 
   // we escape strings
   $preparedStatement = $db->prepare('INSERT INTO map (guid,
@@ -55,33 +55,17 @@ function gf_insert($post, $db) {
  * @var $guid guid created on insert
  * @var $db database connection object
  */
-function return_data($guid, $db) {
-  $statement = $db->prepare("select * from map where guid = :guid");
-  $statement->execute(array(':guid' => $guid));
-
-  $row = $statement->fetch();
+function return_data($guid) {
   
-  $locjson = json_decode(str_replace("'",'"',$row['address_location']));
-
-  $host = "http://" . $_SERVER['HTTP_HOST'];
-
-  $height = $row['height'];
-  $width = $row['width'];
-  $guid = $row['guid'];
-  $app_id = $row['app_id'];
-  $app_key = $row['app_key'];
-  $collection = $row['collection'];
-  $lat = $locjson->lat;
-  $lon = $locjson->lon;
-  $zoom = $locjson->zoom;
 
   if (($width || $height) == '0') {
-    $string = "<iframe height='" . $height . "' width='" . $width . "' src='" . $host . "/embed.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "' style='width: 100%; height: 100%;'></iframe>";
+    $string = "<iframe height='" . $height . "' width='" . $width . "' src='" . "http://" . $_SERVER['HTTP_HOST'] . "/embed.php?guid=" . $guid . "' style='width: 100%; height: 100%;'></iframe>";
   } else {
-    $string = "<iframe height='" . $height . "' width='" . $width . "' src='" . $host . "/embed.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "'></iframe>";
+    $string = "<iframe height='" . $height . "' width='" . $width . "' src='" . "http://" . $_SERVER['HTTP_HOST'] . "/embed.php?guid=" . $guid . "'></iframe>";
   }
   
   print $string;
+  // print $guid;
 }
 
 ?>

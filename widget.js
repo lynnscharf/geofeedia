@@ -25,7 +25,6 @@ $(document).ready(function() {
         
       }).done(function(data) {
         $('textarea').val(data);
-
         $('#dialog').dialog("open");
       });
     };
@@ -45,8 +44,8 @@ $(document).ready(function() {
 });
 
 $("form input[type=submit]").click(function() {
-    $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
-    $(this).attr("clicked", "true");
+  $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
+  $(this).attr("clicked", "true");
 });
 
 

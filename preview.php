@@ -41,7 +41,7 @@ function gf_insert($post, $db) {
                                     'width' => $post['width'],
                                     'height' => $post['height']
                                     ));
-  return_data($guid, $db);
+  return_data($guid);
 }
 
 /**
@@ -49,31 +49,12 @@ function gf_insert($post, $db) {
  * @var $guid guid created on insert
  * @var $db database connection object
  */
-function return_data($guid, $db) {
-  $statement = $db->prepare("select * from map where guid = :guid");
-  $statement->execute(array(':guid' => $guid));
-
-  $row = $statement->fetch();
-  
-  $locjson = json_decode(str_replace("'",'"',$row['address_location']));
-
-  $host = "http://" . $_SERVER['HTTP_HOST'];
-
-  $height = $row['height'];
-  $width = $row['width'];
-  $guid = $row['guid'];
-  $app_id = $row['app_id'];
-  $app_key = $row['app_key'];
-  $collection = $row['collection'];
-  $lat = $locjson->lat;
-  $lon = $locjson->lon;
-  $zoom = $locjson->zoom;
-
+function return_data($guid) {
   if (($width || $height) == '0') {
-    $string = $host . "/prev.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "&height=100%&width=100%";
+    $string = $host . "/prev.php?guid=" . $guid . "&height=100%&width=100%";
     
   } else {
-    $string = $host . "/prev.php?guid=" . $guid . "&appid=" . $app_id . "&appkey=" . $app_key . "&collection=" . $collection . "&lat=" . $lat . "&lon=" . $lon . "&zoom=" . $zoom . "&height=" . $height . "&width=" . $width;
+    $string = $host . "/prev.php?guid=" . $guid;
   };
 
   print $string;
