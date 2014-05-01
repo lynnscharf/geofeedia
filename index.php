@@ -40,9 +40,13 @@
             <li id="li_3" >
               <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <input value="" id="collection_feed_id" name="collection" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia Collection ID" onfocus="if (this.placeholder == '&nbsp;Geofeedia Collection ID') {this.placeholder=''}"/> 
 =======
-                <input value="11330" id="collection_feed_id" name="collection" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia Feed or Collection ID" onfocus="if (this.placeholder == '&nbsp;Geofeedia Feed or Collection ID') {this.placeholder=''}"/> 
+                <input value="11330" id="collection_feed_id" name="collection" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia Feed or Collection ID" onfocus="if (this.placeholder == '&nbsp;Geofeedia Collection ID') {this.placeholder=''}"/> 
+>>>>>>> FETCH_HEAD
+=======
+                <input value="11330" id="collection_feed_id" name="collection" class="element_text_medium" type="text" maxlength="255" placeholder="&nbsp;Geofeedia Feed or Collection ID" onfocus="if (this.placeholder == '&nbsp;Geofeedia Collection ID') {this.placeholder=''}"/> 
 >>>>>>> FETCH_HEAD
               </div> 
             </li>   
